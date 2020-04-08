@@ -7,7 +7,7 @@ import java.util.stream.Stream;
 
 public class GuessNumberGame {
     private static final String ERR_MESSAGE_INVALID_INPUT = "Wrong Input，Input again";
-    private static final String DEFAULT_ANSWER = "1234";
+    private static final String DEFAULT_ANSWER = "3472";
     private final String answer;
     private String input;
     private String output;
@@ -23,10 +23,10 @@ public class GuessNumberGame {
     public void receiveInput(String rawInput) {
         if (rawInput.length() != 4 || isContainDuplicate(rawInput)) {
             this.output = ERR_MESSAGE_INVALID_INPUT;
-        } else {
-            this.input = rawInput;
+            return;
         }
 
+        this.input = rawInput;
         validateInput();
     }
 

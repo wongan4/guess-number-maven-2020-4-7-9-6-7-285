@@ -37,6 +37,8 @@ public class GameLogicTest {
 
     @Test
     public void should_output_correct_when_some_correct_position_some_not() {
-
+        String input = "4692";
+        this.game.receiveInput(input);
+        assertEquals("2A2B", this.game.getOutput());
     }
 }
