@@ -7,7 +7,6 @@ import static org.junit.Assert.assertEquals;
 
 public class IOTest {
     private static final String ERR_MESSAGE_INVALID_INPUT = "Wrong Input，Input again";
-
     private GuessNumberGame game;
 
     @Before

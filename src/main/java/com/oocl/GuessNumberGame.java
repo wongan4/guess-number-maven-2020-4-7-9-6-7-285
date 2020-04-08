@@ -2,7 +2,6 @@ package com.oocl;
 
 public class GuessNumberGame {
     private static final String ERR_MESSAGE_INVALID_INPUT = "Wrong Input，Input again";
-
     private String input;
     private String output;
 
