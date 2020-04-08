@@ -35,5 +35,8 @@ public class GameLogicTest {
         assertEquals("0A4B", this.game.getOutput());
     }
 
+    @Test
+    public void should_output_correct_when_some_correct_position_some_not() {
 
+    }
 }
