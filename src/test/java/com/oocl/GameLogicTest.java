@@ -22,11 +22,18 @@ public class GameLogicTest {
     }
 
     @Test
-    public void should_output_correct_when_all_wrong_input() {
+    public void should_output_correct_when_all_number_wrong() {
         String input = "5138";
         this.game.receiveInput(input);
         assertEquals("0A0B", this.game.getOutput());
     }
 
-    
+    @Test
+    public void should_output_correct_when_correct_number_but_all_position_wrong() {
+        String input = "9264";
+        this.game.receiveInput(input);
+        assertEquals("0A4B", this.game.getOutput());
+    }
+
+
 }
