@@ -16,7 +16,14 @@ public class IOTest {
 
     @Test
     public void should_block_incomplete_input() {
-        String input = "1 2 ";
+        String input = "12";
+        this.game.receiveInput(input);
+        assertEquals(ERR_MESSAGE_INVALID_INPUT, this.game.getOutput());
+    }
+
+    @Test
+    public void should_block_duplicate_number_input() {
+        String input = "1231";
         this.game.receiveInput(input);
         assertEquals(ERR_MESSAGE_INVALID_INPUT, this.game.getOutput());
     }
