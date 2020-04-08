@@ -15,9 +15,18 @@ public class GameLogicTest {
     }
 
     @Test
-    public void should_win_game_when_correct_input() {
+    public void should_output_correct_when_correct_input() {
         String input = JUNIT_TEST_ANSWER;
         this.game.receiveInput(input);
         assertEquals("4A0B", this.game.getOutput());
     }
+
+    @Test
+    public void should_output_correct_when_all_wrong_input() {
+        String input = "5138";
+        this.game.receiveInput(input);
+        assertEquals("0A0B", this.game.getOutput());
+    }
+
+    
 }
