@@ -15,6 +15,13 @@ public class GameLogicTest {
     }
 
     @Test
+    public void should_generate_random_answer() {
+        RandomNumberGenerator answerGenerator = new RandomNumberGenerator();
+        GuessNumberGame gameWithRandomAnswer = new GuessNumberGame(answerGenerator);
+        assertNotEquals(JUNIT_TEST_ANSWER, gameWithRandomAnswer.getAnswer());
+    }
+
+    @Test
     public void should_output_correct_when_correct_input() {
         String input = JUNIT_TEST_ANSWER;
         this.game.receiveInput(input);

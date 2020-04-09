@@ -20,6 +20,10 @@ public class GuessNumberGame {
         this.answer = DEFAULT_ANSWER;
     }
 
+    public GuessNumberGame(AnswerGeneratorInterface answerGeneratorInterface) {
+        this.answer = answerGeneratorInterface.generateAnswer();
+    }
+
     public void receiveInput(String rawInput) {
         if (rawInput.length() != 4 || isContainDuplicate(rawInput)) {
             this.output = ERR_MESSAGE_INVALID_INPUT;
