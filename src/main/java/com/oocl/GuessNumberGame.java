@@ -1,13 +1,11 @@
 package com.oocl;
 
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
-import java.util.stream.Stream;
 
 public class GuessNumberGame {
     private static final String ERR_MESSAGE_INVALID_INPUT = "Wrong Input，Input again";
     private static final String DEFAULT_ANSWER = "3472";
+    private static final int INPUT_LENGTH = 4;
     private final String answer;
     private String input;
     private String output;
@@ -25,28 +23,27 @@ public class GuessNumberGame {
     }
 
     public void receiveInput(String rawInput) {
-        if (rawInput.length() != 4 || isContainDuplicate(rawInput)) {
+        if (rawInput.length() != INPUT_LENGTH || isContainDuplicate(rawInput)) {
             this.output = ERR_MESSAGE_INVALID_INPUT;
             return;
         }
 
         this.input = rawInput;
-        validateInput();
+        processInput();
     }
 
     private boolean isContainDuplicate(String rawInput) {
-        HashMap<Character, Integer> inputNumberCount = new HashMap<Character, Integer>();
+        HashMap<Character, Integer> inputNumberCount = new HashMap<>();
         for (Character inputNumber : rawInput.toCharArray()) {
             if (inputNumberCount.containsKey(inputNumber)) {
                 return true;
-            } else {
-                inputNumberCount.put(inputNumber, 1);
             }
+            inputNumberCount.put(inputNumber, 1);
         }
         return false;
     }
 
-    private void validateInput() {
+    private void processInput() {
         int correctPositionNumberCount = countCorrectPositionNumber();
         int sameNumberCount = countSameNumber();
         this.output = correctPositionNumberCount + "A" + (sameNumberCount - correctPositionNumberCount) + "B";
