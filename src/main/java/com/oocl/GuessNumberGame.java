@@ -2,7 +2,7 @@ package com.oocl;
 
 import java.util.HashMap;
 
-public class GuessNumberGame {
+class GuessNumberGame {
     private static final String ERR_MESSAGE_INVALID_INPUT = "Wrong Input，Input again";
     private static final String DEFAULT_ANSWER = "3472";
     private static final int INPUT_LENGTH = 4;
@@ -10,19 +10,19 @@ public class GuessNumberGame {
     private String input;
     private String output;
 
-    public GuessNumberGame(String answer) {
+    GuessNumberGame(String answer) {
         this.answer = answer;
     }
 
-    public GuessNumberGame() {
+    GuessNumberGame() {
         this.answer = DEFAULT_ANSWER;
     }
 
-    public GuessNumberGame(AnswerGeneratorInterface answerGeneratorInterface) {
+    GuessNumberGame(AnswerGeneratorInterface answerGeneratorInterface) {
         this.answer = answerGeneratorInterface.generateAnswer();
     }
 
-    public void receiveInput(String rawInput) {
+    void receiveInput(String rawInput) {
         if (rawInput.length() != INPUT_LENGTH || isContainDuplicate(rawInput)) {
             this.output = ERR_MESSAGE_INVALID_INPUT;
             return;
@@ -49,7 +49,7 @@ public class GuessNumberGame {
         this.output = correctPositionNumberCount + "A" + (sameNumberCount - correctPositionNumberCount) + "B";
     }
 
-    public int countCorrectPositionNumber() {
+    private int countCorrectPositionNumber() {
         int count = 0;
 
         for (Character number : this.input.toCharArray()) {
@@ -62,7 +62,7 @@ public class GuessNumberGame {
         return count;
     }
 
-    public int countSameNumber() {
+    private int countSameNumber() {
         int count = 0;
 
         for (Character number : this.input.toCharArray()) {
@@ -74,11 +74,11 @@ public class GuessNumberGame {
         return count;
     }
 
-    public String getOutput() {
+    String getOutput() {
         return this.output;
     }
 
-    public String getAnswer() {
+    String getAnswer() {
         return this.answer;
     }
 }
