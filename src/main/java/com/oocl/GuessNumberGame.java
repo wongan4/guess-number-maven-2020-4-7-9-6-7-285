@@ -9,6 +9,7 @@ class GuessNumberGame {
     private final String answer;
     private String input;
     private String output;
+    private RandomNumberGenerator randomNumberGenerator;
 
     GuessNumberGame(String answer) {
         this.answer = answer;
