@@ -16,7 +16,8 @@ class GuessNumberGame {
     }
 
     GuessNumberGame() {
-        this.answer = DEFAULT_ANSWER;
+        this.randomNumberGenerator = new RandomNumberGenerator();
+        this.answer = this.randomNumberGenerator.generateAnswer();
     }
 
     GuessNumberGame(AnswerGeneratorInterface answerGeneratorInterface) {
